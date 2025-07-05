@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://drmrg3f7mpdln"]
+
+[ext_resource type="Theme" uid="uid://c3gcwtv37x0pe" path="res://new_theme.tres" id="1_daq40"]
+[ext_resource type="Script" uid="uid://daik3kawgleb8" path="res://dsfd.gd" id="2_663ow"]
+[ext_resource type="Texture2D" uid="uid://dpjljtncsoi8m" path="res://reina-open.png" id="2_afpk1"]
+[ext_resource type="FontFile" uid="uid://pvr5u4kaifxb" path="res://Perfect DOS VGA 437 Win.ttf" id="3_gr2ix"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_afpk1"]
+font_size = 26
+
+[sub_resource type="Shader" id="Shader_afpk1"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+shader_type canvas_item;
+
+uniform vec4 my_modulate: source_color;
+
+void vertex() {
+
+}
+
+void fragment() {
+	vec4 mask = texture(TEXTURE, UV);
+	COLOR.r = my_modulate.r;
+	COLOR.g = my_modulate.g;
+	COLOR.b = my_modulate.b;
+	COLOR.a = 1.0-(0.2126*mask.r + 0.7152*mask.g + 0.0722*mask.b);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr2ix"]
+shader = SubResource("Shader_afpk1")
+shader_parameter/my_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_663ow"]
+line_spacing = 1.0
+font = ExtResource("3_gr2ix")
+font_color = Color(0.9, 0.9, 0.9, 1)
+outline_size = 5
+outline_color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="Panel" type="Panel"]
+clip_children = 2
+offset_right = 384.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_daq40")
+script = ExtResource("2_663ow")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 177.0
+offset_bottom = 37.0
+theme = ExtResource("1_daq40")
+text = "Reina"
+label_settings = SubResource("LabelSettings_afpk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.45, 0.45, 1)
+self_modulate = Color(0.405807, 0.420021, 0.259107, 1)
+material = SubResource("ShaderMaterial_gr2ix")
+position = Vector2(334, 58)
+texture = ExtResource("2_afpk1")
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 33.0
+offset_right = 292.0
+offset_bottom = 100.0
+text = "kfhseriug hrehgh5regh urighdfsu lghjdfk sxgbdfhjkx gdfjkgbn dfj dfkjg kjjdghfdkg df dfgh  jk dh jhkd "
+label_settings = SubResource("LabelSettings_663ow")
+autowrap_mode = 3
+visible_characters_behavior = 1
